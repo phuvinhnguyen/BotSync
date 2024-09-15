@@ -8,7 +8,7 @@ pip install git+https://github.com/phuvinhnguyen/BotSync.git
 ```python
 from BotSync.gemini import GeminiBot
 
-bot = GeminiBot('AIzaSyAbcdKGvTrURIW5QneMmjEYJb61xp571Sg')
+bot = GeminiBot('<TOKEN>')
 
 bot.generate("hello")
 ```
