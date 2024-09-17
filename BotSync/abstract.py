@@ -10,7 +10,7 @@ class AbstractBot:
     def prompt(self, text):
         raise NotImplementedError
     
-    def run_batch(self, texts, delay=5):
+    def run_batch(self, texts, delay=10):
         results = []
         for text in texts:
             output = self.generate(text)
