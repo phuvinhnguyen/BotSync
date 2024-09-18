@@ -12,6 +12,8 @@ setup(
     install_requires=[
         "torch>=1.9.0",
         "torchvision>=0.10.0",
+        "openai",
+        "google-generativeai",
     ],
     include_package_data=True,  # Include data files specified in package_data
 )
