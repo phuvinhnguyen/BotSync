@@ -45,8 +45,8 @@ class AbstractBot:
 
 
 class MonitorBot:
-    def __init__(self, bot, *args, **kwargs):
-        self.bot = AbstractBot.create_instance(bot, *args, **kwargs)
+    def __init__(self, bot_code, *args, **kwargs):
+        self.bot = AbstractBot.create_instance(bot_code, *args, **kwargs)
 
-    def switch(self, bot, *args, **kwargs):
-        self.bot = AbstractBot.create_instance(bot, *args, **kwargs)
+    def switch(self, bot_code, *args, **kwargs):
+        self.bot = AbstractBot.create_instance(bot_code, *args, **kwargs)
