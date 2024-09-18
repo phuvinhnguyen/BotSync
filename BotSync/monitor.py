@@ -1,7 +1,4 @@
 import time
-from .gemini import *
-from .chatgpt import *
-from .huggingface import *
 
 
 class AbstractBot:
