@@ -10,9 +10,8 @@ setup(
     description=long_description,
     packages=find_packages(),  # Automatically find packages in your project
     install_requires=[
-        "torch>=1.9.0",  # PyTorch for deep learning
-        "torchvision>=0.10.0",  # torchvision for image processing utilities
-        ""
+        "torch>=1.9.0",
+        "torchvision>=0.10.0",
     ],
     include_package_data=True,  # Include data files specified in package_data
 )

@@ -1,6 +1,8 @@
 import openai
-from .abstract import AbstractBot
+from .monitor import AbstractBot
 
+
+@AbstractBot.register_class("chatgpt")
 class ChatGPTBot(AbstractBot):
     def __init__(self, token, model="gpt-4"):
         super().__init__()
@@ -13,6 +15,6 @@ class ChatGPTBot(AbstractBot):
             messages=[{"role": "user", "content": text}]
         )
         return response['choices'][0]['message']['content']
-    
+
     def prompt(self, text):
         return text

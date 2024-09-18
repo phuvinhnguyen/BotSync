@@ -1,7 +1,8 @@
-import requests
 from huggingface_hub import InferenceApi
-from .abstract import AbstractBot
+from .monitor import AbstractBot
 
+
+@AbstractBot.register_class("huggingface")
 class HuggingFaceBot(AbstractBot):
     def __init__(self, token, model="gpt2"):
         super().__init__()
