@@ -1,1 +1,1 @@
-from monitor import MonitorBot
+from .monitor import MonitorBot
