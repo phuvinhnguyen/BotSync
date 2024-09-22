@@ -10,7 +10,14 @@ class GeminiBot(AbstractBot):
         self.model = genai.GenerativeModel(bot)
 
     def __run__(self, text):
-        return self.model.generate_content(text).text
+        for _ in range(5):
+            try:
+                result = self.model.generate_content(text).text
+                return result
+            except Exception as e:
+                print(e)
+
+        return ''
 
     def prompt(self, text):
         return text
