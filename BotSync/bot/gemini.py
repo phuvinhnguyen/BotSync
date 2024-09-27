@@ -71,11 +71,7 @@ class MultiTurnGeminiBot(AbstractBot):
                     self.model = genai.GenerativeModel(self.bot, system_instruction=self.system_prompt).start_chat(history=[])
 
             try:
-                print('-'*100)
-                print(text)
                 result = self.model.send_message({"role": role, "parts": text})
-                print('hellloooooooooooooooooooo')
-                print(result)
                 result = result.text
                 break
             except Exception as e:
