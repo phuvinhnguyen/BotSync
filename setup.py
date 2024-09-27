@@ -10,8 +10,6 @@ setup(
     description=long_description,
     packages=find_packages(),  # Automatically find packages in your project
     install_requires=[
-        "torch>=1.9.0",
-        "torchvision>=0.10.0",
         "openai",
         "google-generativeai",
     ],
