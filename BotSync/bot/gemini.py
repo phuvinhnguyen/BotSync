@@ -72,6 +72,7 @@ class MultiTurnGeminiBot(AbstractBot):
 
             try:
                 print('-'*100)
+                print(text)
                 result = self.model.send_message({"role": role, "parts": text})
                 print(result)
                 result = result.text
