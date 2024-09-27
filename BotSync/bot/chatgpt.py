@@ -1,5 +1,5 @@
 import openai
-from .monitor import AbstractBot
+from ..monitor import AbstractBot
 
 
 @AbstractBot.register_class("chatgpt")

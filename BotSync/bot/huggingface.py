@@ -1,5 +1,5 @@
 from huggingface_hub import InferenceApi
-from .monitor import AbstractBot
+from ..monitor import AbstractBot
 
 
 @AbstractBot.register_class("huggingface")
