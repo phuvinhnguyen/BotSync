@@ -74,6 +74,7 @@ class MultiTurnGeminiBot(AbstractBot):
                 print('-'*100)
                 print(text)
                 result = self.model.send_message({"role": role, "parts": text})
+                print('hellloooooooooooooooooooo')
                 print(result)
                 result = result.text
                 break
