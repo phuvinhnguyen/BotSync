@@ -25,7 +25,7 @@ class GeminiBot(AbstractBot):
             if self.switch_between:
                 self.index = (self.index + 1) % self.num_token
                 genai.configure(api_key=self.token[self.index])
-                self.model = genai.GenerativeModel(bot=self.bot)
+                self.model = genai.GenerativeModel(self.bot)
 
             try:
                 result = self.model.generate_content(text).text
