@@ -60,6 +60,7 @@ class MultiTurnGeminiBot(AbstractBot):
             self.repeat_time = 5
 
     def __run__(self, text, role="user"):
+        result = ''
         for _ in range(self.repeat_time):
             if self.switch_between:
                 self.index = (self.index + 1) % self.num_token
@@ -70,12 +71,14 @@ class MultiTurnGeminiBot(AbstractBot):
                     self.model = genai.GenerativeModel(self.bot, system_instruction=self.system_prompt).start_chat(history=[])
 
             try:
+                print('-'*100)
                 result = self.model.send_message({"role": role, "parts": text}).text
-                return result
+                print(result)
+                break
             except Exception as e:
                 print(e)
 
-        return ''
+        return result
 
     def prompt(self, text):
         return text
