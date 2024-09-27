@@ -45,17 +45,17 @@ class MultiTurnGeminiBot(AbstractBot):
         super().__init__()
         self.bot = bot
         self.token = token
-        self.history = []
 
         if isinstance(token, list):
             self.switch_between = True
             self.index = 0
             self.num_token = len(token)
             self.repeat_time = len(token) + 2
+            self.model = None
         else:
             genai.configure(api_key=token)
             self.switch_between = False
-            self.model = genai.GenerativeModel(bot).start_chat(history=self.history)
+            self.model = genai.GenerativeModel(bot).start_chat(history=[])
             self.repeat_time = 5
 
     def __run__(self, text):
@@ -63,14 +63,13 @@ class MultiTurnGeminiBot(AbstractBot):
             if self.switch_between:
                 self.index = (self.index + 1) % self.num_token
                 genai.configure(api_key=self.token[self.index])
-                self.model = genai.GenerativeModel(self.bot).start_chat(history=self.history)
+                if self.model is not None:
+                    self.model = genai.GenerativeModel(self.bot).start_chat(history=self.model.history)
+                else:
+                    self.model = genai.GenerativeModel(self.bot).start_chat(history=[])
 
             try:
                 result = self.model.send_message(text).text
-                self.history += [
-                    {"role": "user", "parts": text},
-                    {"role": "model", "parts": result},
-                ]
                 return result
             except Exception as e:
                 print(e)
