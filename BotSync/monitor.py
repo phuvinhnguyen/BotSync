@@ -5,8 +5,8 @@ class AbstractBot:
     def __run__(self, text):
         raise NotImplementedError
 
-    def generate(self, text):
-        return self.__run__(self.prompt(text))
+    def generate(self, text, **kwargs):
+        return self.__run__(self.prompt(text), **kwargs)
 
     def prompt(self, text):
         raise NotImplementedError
