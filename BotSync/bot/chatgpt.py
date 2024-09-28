@@ -6,10 +6,10 @@ from PIL import Image
 
 @AbstractBot.register_class("chatgpt")
 class ChatGPTBot(AbstractBot):
-    def __init__(self, token, model="gpt-4o-mini"):
+    def __init__(self, token, bot="gpt-4o-mini"):
         super().__init__()
         openai.api_key = token
-        self.model = model
+        self.model = bot
 
     def __encode_image(self, image):
         buffered = io.BytesIO()
