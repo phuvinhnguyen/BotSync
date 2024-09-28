@@ -28,8 +28,9 @@ class GeminiBot(AbstractBot):
                 self.model = genai.GenerativeModel(self.bot)
 
             try:
-                result = self.model.generate_content(text).text
-                return result
+                result = self.model.generate_content(text)
+                print(result)
+                return result.text
             except Exception as e:
                 print(e)
 
