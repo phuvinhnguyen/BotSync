@@ -40,7 +40,7 @@ class ChatGPTBot(AbstractBot):
                     "content": content,
                 }
             ],
-            max_tokens = 200,
+            # max_tokens = 200,
         )
         return response.choices[0].message.content
 
