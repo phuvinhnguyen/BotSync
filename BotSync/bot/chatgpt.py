@@ -26,7 +26,7 @@ class ChatGPTBot(AbstractBot):
             }
         elif isinstance(obj, Image.Image):
             if self.eco:
-                obj = obj.resize(256, 256)
+                obj = obj.resize(512, 512)
             return {
                 "type": "image_url",
                 "image_url": {
