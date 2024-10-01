@@ -6,10 +6,11 @@ from PIL import Image
 
 @AbstractBot.register_class("chatgpt")
 class ChatGPTBot(AbstractBot):
-    def __init__(self, token, bot="gpt-4o-mini"):
+    def __init__(self, token, bot="gpt-4o-mini", eco=False):
         super().__init__()
         openai.api_key = token
         self.model = bot
+        self.eco = eco
 
     def __encode_image(self, image):
         buffered = io.BytesIO()
@@ -24,6 +25,8 @@ class ChatGPTBot(AbstractBot):
                 "text": obj,
             }
         elif isinstance(obj, Image.Image):
+            if self.eco:
+                obj = obj.resize(256, 256)
             return {
                 "type": "image_url",
                 "image_url": {
