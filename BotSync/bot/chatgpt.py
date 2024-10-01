@@ -6,7 +6,7 @@ from PIL import Image
 
 @AbstractBot.register_class("chatgpt")
 class ChatGPTBot(AbstractBot):
-    def __init__(self, token, bot="gpt-4o-mini", eco=False):
+    def __init__(self, token, bot="gpt-4o-mini", eco=True):
         super().__init__()
         openai.api_key = token
         self.model = bot
