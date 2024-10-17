@@ -29,7 +29,6 @@ class GeminiBot(AbstractBot):
 
             try:
                 result = self.model.generate_content(text)
-                print(result)
                 return result.text
             except Exception as e:
                 print(e)
